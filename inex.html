@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Seat Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Movie Seat Booking</h1>
+
+    <label for="movie">Välj film:</label>
+    <select id="movie"></select>
+
+    <div class="container">
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied"></div>
+            <div class="seat"></div>
+        </div>
+    </div>
+
+    <p>
+        Du har valt <span id="count">0</span> säten för totalt
+        <span id="total">0</span> kr
+    </p>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "javascriptmovieseatbookstart-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahadkadhim12-creator/javascriptmovieseatbookSTART-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shahadkadhim12-creator/javascriptmovieseatbookSTART-main/issues"
+  },
+  "homepage": "https://github.com/shahadkadhim12-creator/javascriptmovieseatbookSTART-main#readme"
+}
