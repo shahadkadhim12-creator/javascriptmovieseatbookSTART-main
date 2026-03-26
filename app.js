@@ -9,24 +9,24 @@ const movieSelect = document.getElementById("movie");
 // Startpris
 let ticketPrice = 0;
 
-// Filmer som fallback om JSON-server inte finns
+// Fallback filmer
 const fallbackMovies = [
   new Movie("The Lion King", "2019", 100, "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg"),
-  new Movie("Doctor Strange", "2016", 120, "https://m.media-amazon.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg"),
+  new Movie("Doctor Strange", "2016", 120, "https://m.media-amazon.com/images/M/MV5BMjEyNjQ3NjYyNV5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg"),
   new Movie("Get Hard", "2015", 90, "https://m.media-amazon.com/images/M/MV5BMjA0ODc0ODU3MF5BMl5BanBnXkFtZTgwMjg3NDc1NDE@._V1_SX300.jpg")
 ];
 
-// Hämta filmer från JSON-server, annars fallback
+// Hämta filmer
 fetch("http://localhost:3000/movies")
-  .then((response) => response.json())
+  .then((res) => res.json())
   .then((movies) => {
     populateMovies(movies);
-    updateSelectedCount(); // 🔥 VIKTIG FIX
+    updateSelectedCount(); // 🔥 viktigt
   })
   .catch(() => {
-    console.warn("JSON-server hittades inte, använder fallback-filmer.");
+    console.warn("Använder fallback-filmer");
     populateMovies(fallbackMovies);
-    updateSelectedCount(); // 🔥 VIKTIG FIX
+    updateSelectedCount(); // 🔥 viktigt
   });
 
 // Fyll dropdown
@@ -48,7 +48,7 @@ function populateMovies(movies) {
   ticketPrice = +movieSelect.value;
 }
 
-// Klicka på säten
+// Klick på säten
 container.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("seat") &&
@@ -59,13 +59,13 @@ container.addEventListener("click", (e) => {
   }
 });
 
-// Ändra film
+// Byta film
 movieSelect.addEventListener("change", (e) => {
   ticketPrice = +e.target.value;
   updateSelectedCount();
 });
 
-// Uppdatera count och total
+// Uppdatera
 function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll(".seat.selected");
   const selectedSeatsCount = selectedSeats.length;
