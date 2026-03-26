@@ -21,10 +21,12 @@ fetch("http://localhost:3000/movies")
   .then((response) => response.json())
   .then((movies) => {
     populateMovies(movies);
+    updateSelectedCount(); // 🔥 VIKTIG FIX
   })
   .catch(() => {
     console.warn("JSON-server hittades inte, använder fallback-filmer.");
     populateMovies(fallbackMovies);
+    updateSelectedCount(); // 🔥 VIKTIG FIX
   });
 
 // Fyll dropdown
@@ -32,7 +34,11 @@ function populateMovies(movies) {
   movieSelect.innerHTML = "";
 
   movies.forEach((m) => {
-    const movie = m instanceof Movie ? m : new Movie(m.Title, m.Year, m.Price, m.Poster);
+    const movie =
+      m instanceof Movie
+        ? m
+        : new Movie(m.Title, m.Year, m.Price, m.Poster);
+
     const option = document.createElement("option");
     option.value = movie.price;
     option.textContent = `${movie.title} (${movie.price} kr)`;
@@ -44,7 +50,10 @@ function populateMovies(movies) {
 
 // Klicka på säten
 container.addEventListener("click", (e) => {
-  if (e.target.classList.contains("seat") && !e.target.classList.contains("occupied")) {
+  if (
+    e.target.classList.contains("seat") &&
+    !e.target.classList.contains("occupied")
+  ) {
     e.target.classList.toggle("selected");
     updateSelectedCount();
   }
